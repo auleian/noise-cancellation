@@ -1,0 +1,94 @@
+.recorder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.mic-border {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, border-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.mic-border:active {
+    transform: scale(0.9);
+}
+
+.mic-border.mic-border-active {
+    border-color: red;
+}
+
+.mic-icon {
+    width: 100px;
+    height: 100px;
+    transition: filter 0.2s ease, transform 0.15s ease;
+}
+
+.mic-border:active .mic-icon {
+    transform: scale(0.9);
+}
+
+.mic-icon.mic-active {
+    filter: invert(16%) sepia(95%) saturate(7480%) hue-rotate(359deg) brightness(100%) contrast(115%);
+}
+
+/* Pulsing wave rings that radiate outward while recording */
+.wave-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid red;
+    opacity: 0;
+    animation: pulse 2s ease-out infinite;
+}
+
+.wave-ring-1 {
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+}
+
+.wave-ring-2 {
+    width: 150px;
+    height: 150px;
+    animation-delay: 0.6s;
+}
+
+.wave-ring-3 {
+    width: 150px;
+    height: 150px;
+    animation-delay: 1.2s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Audio playback controls */
+.playback-container {
+    margin-top: 30px;
+    z-index: 1;
+}
+
+.playback-container audio {
+    border-radius: 30px;
+}
